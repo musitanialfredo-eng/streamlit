@@ -101,7 +101,10 @@ hr { border-color: #1e1e2e; }
 # ── Datos ─────────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/conciertos_masivos_resumen.csv")
+#    df = pd.read_csv("data/conciertos_masivos_resumen.csv")
+    import os
+    BASE = os.path.dirname(__file__)
+    df = pd.read_csv(os.path.join(BASE, "data", "conciertos_masivos_resumen.csv"))
     df["año"] = df["año"].astype(int)
     df["asistentes_millones"] = df["asistentes_miles"] / 1000
     return df
