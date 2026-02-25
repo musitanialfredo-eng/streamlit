@@ -165,9 +165,9 @@ with tab1:
             textposition="outside", textfont=dict(color="#ccc", size=12),
             hovertemplate="<b>%{y}</b><br>%{x:.2f}M asistentes<extra></extra>"))
         fig_rank.update_layout(**PLOT_BASE, height=380, showlegend=False,
-            margin=dict(l=0, r=60, t=30, b=0),
             xaxis=dict(gridcolor="#1a1a26", title="Millones de asistentes"),
             yaxis=dict(gridcolor="#1a1a26", title=""))
+        fig_rank.update_layout(margin=dict(l=0, r=60, t=30, b=0))
         st.plotly_chart(fig_rank, use_container_width=True)
 
     st.markdown("### 🔥 Mapa de calor — Intensidad histórica")
@@ -178,7 +178,7 @@ with tab1:
         colorscale=[[0,"#0e0e16"],[0.15,"#1a1a3a"],[0.4,"#7b2d8b"],[0.7,"#ff6b35"],[1,"#f7c59f"]],
         hovertemplate="<b>%{y}</b> · %{x}<br>" + lbl_m + ": %{z:.2f}<extra></extra>",
         showscale=True, colorbar=dict(tickfont=dict(color="#666"), outlinewidth=0, bgcolor="#0a0a0f")))
-    fig_heat.update_layout(**PLOT_BASE, height=300, margin=dict(l=0, r=0, t=20, b=0),
+    fig_heat.update_layout(**PLOT_BASE, height=300,
         xaxis=dict(tickfont=dict(size=10), title=""),
         yaxis=dict(tickfont=dict(size=12), title=""))
     st.plotly_chart(fig_heat, use_container_width=True)
@@ -199,9 +199,9 @@ with tab2:
         textposition="outside", textfont=dict(color="#bbb", size=10),
         hovertemplate="<b>%{y}</b><br>Asistentes: %{x:.2f}M<extra></extra>"))
     fig_top.update_layout(**PLOT_BASE, height=600, showlegend=False,
-        margin=dict(l=0, r=200, t=20, b=0),
         xaxis=dict(gridcolor="#1a1a26", title="Asistentes (millones)"),
         yaxis=dict(gridcolor="#1a1a26", autorange="reversed", tickfont=dict(size=10)))
+    fig_top.update_layout(margin=dict(l=0, r=200, t=20, b=0))
     st.plotly_chart(fig_top, use_container_width=True)
 
     # Donuts
@@ -214,8 +214,9 @@ with tab2:
             marker=dict(colors=colors, line=dict(color="#0a0a0f", width=2)),
             textfont=dict(family="DM Sans", size=12),
             hovertemplate="<b>%{label}</b><br>%{value:.1f}M · %{percent}<extra></extra>"))
-        fig.update_layout(**PLOT_BASE, height=340, margin=dict(l=0,r=0,t=20,b=0),
+        fig.update_layout(**PLOT_BASE, height=340,
             legend=dict(bgcolor="#13131a", bordercolor="#2a2a3a", borderwidth=1))
+        fig.update_layout(margin=dict(l=0,r=0,t=20,b=0))
         return fig
 
     with c1:
@@ -266,9 +267,9 @@ with tab2:
         text=arts["apariciones"], textposition="outside", textfont=dict(color="#bbb", size=11),
         hovertemplate="<b>%{y}</b><br>Apariciones: %{x}<extra></extra>"))
     fig_art.update_layout(**PLOT_BASE, height=460, showlegend=False,
-        margin=dict(l=0, r=40, t=20, b=0),
         xaxis=dict(gridcolor="#1a1a26", title="Apariciones en eventos masivos"),
         yaxis=dict(gridcolor="#1a1a26", autorange="reversed"))
+    fig_art.update_layout(margin=dict(l=0, r=40, t=20, b=0))
     st.plotly_chart(fig_art, use_container_width=True)
 
 
